@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aslam Zuhdi — Web Designer & Developer</title>
+  
+  <!-- Tipografi: Newsreader (Editorial Serif) & Plus Jakarta Sans (Modern Clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#0C100E',
+            canvasDark: '#080B0A',
+            panel: '#131A16',
+            panelHover: '#18221D',
+            emeraldGlow: '#10B981',
+            emeraldSubtle: '#064E3B',
+            textPrimary: '#F2F5F3',
+            textSecondary: '#95A199',
+            textMuted: '#5F6B63',
+            darkBorder: 'rgba(255, 255, 255, 0.08)',
+            darkBorderHover: 'rgba(52, 211, 153, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Dark Studio atmospheric background with ambient grid and emerald glow */
+    body {
+      background-color: #080B0A;
+      color: #F2F5F3;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 60%),
+        radial-gradient(#1A2620 0.8px, transparent 0.8px);
+      background-size: 100% 100%, 28px 28px;
+      min-height: 100vh;
+    }
+    
+    .glass-dark {
+      background: rgba(18, 25, 21, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-nav {
+      background: rgba(12, 16, 14, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-glow:hover {
+      border-color: rgba(52, 211, 153, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Custom dark scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080B0A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1D2A22;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2E4537;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-emeraldGlow/25 selection:text-emerald-300">
+
+  <div class="fixed top-5 inset-x-0 z-40 max-w-2xl mx-auto px-4">
+    <nav class="glass-nav rounded-full px-4 py-2.5 shadow-2xl flex items-center justify-between text-xs sm:text-sm font-medium">
+      <div class="flex items-center gap-2">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="font-semibold text-textPrimary tracking-tight">Aslam Zuhdi</span>
+        <span class="hidden sm:inline text-textMuted">/</span>
+        <span class="hidden sm:inline text-textSecondary font-normal">Designer & Dev</span>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Live Malang Clock in Dark Badge -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-panel border border-darkBorder text-[11px] text-textSecondary tabular-nums">
+          <i data-feather="clock" class="w-3 h-3 text-emerald-400"></i>
+          <span id="malang-clock">Malang, Memuat...</span>
+        </div>
+
+        <a href="#kontak" class="hidden sm:inline-flex items-center gap-1 bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-3.5 py-1.5 rounded-full text-xs transition duration-200 shadow-sm shadow-emerald-950">
+          <span>Hubungi</span>
+          <i data-feather="arrow-up-right" class="w-3 h-3"></i>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-5 pt-28 pb-20">
+    
+    <header class="mb-14">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-panel flex-shrink-0 group">
+          <img 
+            id="mainAvatar"
+            src="https://lh3.googleusercontent.com/d/1iTenjoQM8m5s_YORQy-vBU8Ni2u5wGmh=w400" 
+            data-gdrive="1iTenjoQM8m5s_YORQy-vBU8Ni2u5wGmh"
+            alt="Foto Profil Aslam Zuhdi"
+            class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Aslam+Zuhdi&background=131A16&color=34D399&size=250';"
+          >
+          <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full"></div>
+        </div>
+
+        <!-- Availability Badge Card in Dark Mode -->
+        <div class="sm:text-right">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-emerald-300 text-xs font-medium backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Terbuka untuk kolaborasi & kerja baru
+          </div>
+          <p class="text-xs text-textSecondary mt-2.5 font-mono">
+            Kelahiran Blitar (24 Feb 2002) • Domisili Malang
+          </p>
+        </div>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-serif font-medium tracking-tight text-textPrimary mb-3 leading-[1.18]">
+        Aslam Zuhdi
+      </h1>
+      
+      <p class="text-sm sm:text-base text-textSecondary font-normal mb-8 flex flex-wrap items-center gap-2">
+        <span class="text-emerald-400 font-medium">Universitas PGRI Kanjuruhan Malang (2025)</span>
+        <span class="text-textMuted">•</span>
+        <span>Pendidik & Kreator Antarmuka</span>
+      </p>
+
+      <!-- Editorial Quote Box (Dark Moody Card) -->
+      <div class="relative p-6 sm:p-7 rounded-2xl glass-dark shadow-xl border border-darkBorder overflow-hidden mb-8">
+        <div class="absolute -right-4 -bottom-6 text-emerald-500/5 select-none pointer-events-none">
+          <i data-feather="quote" class="w-32 h-32"></i>
+        </div>
+        <p class="relative text-xl sm:text-2xl font-serif italic text-emerald-200/90 leading-relaxed font-normal">
+          “Menata antarmuka web yang hening, fungsional, dan ramah pengguna.”
+        </p>
+      </div>
+
+      <!-- Narrative Biography in Crisp Text -->
+      <div class="space-y-4 text-[15px] sm:text-base text-textSecondary leading-relaxed text-justify sm:text-left">
+        <p>
+          Saya adalah individu yang adaptif dengan latar belakang unik: pernah menjadi praktisi pengajar selama <strong class="text-textPrimary font-semibold">2,5 tahun</strong> di tingkat sekolah dasar dan menengah, serta memiliki ketahanan kerja tim dari industri layanan & F&B.
+        </p>
+        <p>
+          Pengalaman mengajar melatih saya menyederhanakan ide-ide rumit menjadi alur yang terstruktur dan mudah dipahami oleh siapa saja—prinsip yang kini menjadi fondasi utama saya saat merancang antarmuka website. Saya percaya bahwa website yang baik tidak hanya menarik secara visual, tetapi juga harus menyelesaikan masalah penggunanya dengan ringkas dan cepat.
+        </p>
+      </div>
+    </header>
+
+    <section class="mb-16">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+        <div class="glass-dark p-4 sm:p-5 rounded-2xl card-glow transition duration-300">
+          <div class="w-8 h-8 rounded-lg bg-emerald-950/70 border border-emerald-800/40 flex items-center justify-center text-emerald-300 mb-3">
+            <i data-feather="book-open" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-textPrimary mb-1">Pedagogi & UX</h3>
+          <p class="text-xs text-textSecondary leading-relaxed">
+            Kemampuan 2,5 th mengajar memudahkan pemetaan hierarki informasi yang intuitif bagi pengguna awam.
+          </p>
+        </div>
+
+        <div class="glass-dark p-4 sm:p-5 rounded-2xl card-glow transition duration-300">
+          <div class="w-8 h-8 rounded-lg bg-amber-950/70 border border-amber-800/40 flex items-center justify-center text-amber-300 mb-3">
+            <i data-feather="coffee" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-textPrimary mb-1">Daya Tahan F&B</h3>
+          <p class="text-xs text-textSecondary leading-relaxed">
+            Kesiapan kerja tim ritme cepat, komunikasi lugas, serta empati layanan yang berorientasi kepuasan klien.
+          </p>
+        </div>
+
+        <div class="glass-dark p-4 sm:p-5 rounded-2xl card-glow transition duration-300">
+          <div class="w-8 h-8 rounded-lg bg-blue-950/70 border border-blue-800/40 flex items-center justify-center text-blue-300 mb-3">
+            <i data-feather="code" class="w-4 h-4"></i>
+          </div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-textPrimary mb-1">Web Fungsional</h3>
+          <p class="text-xs text-textSecondary leading-relaxed">
+            Rancangan kode bersih, bobot ringan, ramah layar ponsel, dan mengutamakan kenyamanan interaksi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold">Visual Documentation</span>
+          <h2 class="text-2xl font-serif font-medium text-textPrimary">Jejak Pengalaman & Transformasi</h2>
+        </div>
+
+        <!-- Slider Navigation Controls -->
+        <div class="flex items-center gap-1.5">
+          <button id="sliderPrev" aria-label="Slide sebelumnya" class="p-2 rounded-full border border-darkBorder bg-panel hover:bg-panelHover hover:border-emerald-500/40 text-textPrimary transition active:scale-95 shadow-sm">
+            <i data-feather="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <button id="sliderNext" aria-label="Slide berikutnya" class="p-2 rounded-full border border-darkBorder bg-panel hover:bg-panelHover hover:border-emerald-500/40 text-textPrimary transition active:scale-95 shadow-sm">
+            <i data-feather="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Slider Container -->
+      <div class="relative rounded-2xl overflow-hidden glass-dark shadow-2xl border border-darkBorder group">
+        <div id="slideTrack" class="flex transition-transform duration-500 ease-out">
+          
+          <!-- Slide 1: Mengajar -->
+          <div class="min-w-full relative aspect-[16/10] sm:aspect-[16/9] bg-stone-900">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1_Wdrt6kEz8PxXreGkdqfaQHl5_aZeyQC=w1400" 
+              data-gdrive="1_Wdrt6kEz8PxXreGkdqfaQHl5_aZeyQC"
+              alt="Praktisi Pengajar SD dan Menengah"
+              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80';"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-canvasDark via-canvasDark/40 to-transparent flex flex-col justify-end p-5 sm:p-7 text-white">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 mb-1">01 / Edukasi & Pengajaran</span>
+              <h3 class="text-base sm:text-lg font-medium font-serif leading-snug">Praktisi Pengajar (2,5 Tahun)</h3>
+              <p class="text-xs sm:text-sm text-stone-300 font-light mt-1 max-w-xl">
+                Menyederhanakan konsep abstrak menjadi silabus dan pemahaman bertahap bagi peserta didik.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 2: F&B / Layanan -->
+          <div class="min-w-full relative aspect-[16/10] sm:aspect-[16/9] bg-stone-900">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1oyvGl5Wv_pKEiJ8c-x6Zy-_oRbhdqhP7=w1400" 
+              data-gdrive="1oyvGl5Wv_pKEiJ8c-x6Zy-_oRbhdqhP7"
+              alt="Layanan & Hospitality F&B"
+              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1200&q=80';"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-canvasDark via-canvasDark/40 to-transparent flex flex-col justify-end p-5 sm:p-7 text-white">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 mb-1">02 / Hospitality & Teamwork</span>
+              <h3 class="text-base sm:text-lg font-medium font-serif leading-snug">Industri Layanan & F&B</h3>
+              <p class="text-xs sm:text-sm text-stone-300 font-light mt-1 max-w-xl">
+                Kecepatan tanggap, ketahanan kerja tim bertekanan tinggi, serta ketelitian melayani ratusan pelanggan harian.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Koding & Web -->
+          <div class="min-w-full relative aspect-[16/10] sm:aspect-[16/9] bg-stone-900">
+            <img 
+              src="https://lh3.googleusercontent.com/d/1QFmz6lIGMOUhuxpyER9n3__Cn4kaSpHD=w1400" 
+              data-gdrive="1QFmz6lIGMOUhuxpyER9n3__Cn4kaSpHD"
+              alt="Belajar Koding dan Merancang Web"
+              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500"
+              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';"
+            >
+            <div class="absolute inset-0 bg-gradient-to-t from-canvasDark via-canvasDark/40 to-transparent flex flex-col justify-end p-5 sm:p-7 text-white">
+              <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 mb-1">03 / Desain & Rekayasa Antarmuka</span>
+              <h3 class="text-base sm:text-lg font-medium font-serif leading-snug">Eksplorasi Web Development</h3>
+              <p class="text-xs sm:text-sm text-stone-300 font-light mt-1 max-w-xl">
+                Menerjemahkan kebutuhan pengguna ke dalam kode bersih dan antarmuka web yang bebas hambatan.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Slider Slide Indicators / Tabs in Dark Mode -->
+        <div class="p-3 bg-panel border-t border-darkBorder flex items-center justify-between text-xs">
+          <div class="flex gap-2" id="slideDots">
+            <button class="px-3 py-1 rounded-full font-medium transition text-emerald-300 bg-emerald-950/80 border border-emerald-700/50" onclick="setSlide(0)">Edukasi</button>
+            <button class="px-3 py-1 rounded-full font-medium transition text-textSecondary hover:text-textPrimary hover:bg-panelHover" onclick="setSlide(1)">Layanan F&B</button>
+            <button class="px-3 py-1 rounded-full font-medium transition text-textSecondary hover:text-textPrimary hover:bg-panelHover" onclick="setSlide(2)">Koding Web</button>
+          </div>
+          <span class="font-mono text-textMuted text-[11px] tabular-nums" id="slideCounter">1 / 3</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <div class="mb-5">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold">Featured Work</span>
+        <h2 class="text-2xl font-serif font-medium text-textPrimary">Studi Kasus Proyek</h2>
+      </div>
+
+      <div class="glass-dark rounded-3xl p-6 sm:p-8 border border-darkBorder shadow-2xl">
+        
+        <!-- Project Header -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-6 border-b border-darkBorder mb-6">
+          <div>
+            <span class="inline-block px-2.5 py-0.5 rounded text-[11px] font-mono font-medium tracking-wide uppercase bg-emerald-950/80 text-emerald-300 border border-emerald-800/50 mb-2">
+              Web Application & UI/UX
+            </span>
+            <h3 class="text-xl sm:text-2xl font-serif font-medium text-textPrimary">
+              Undangan Pernikahan Digital & Integrasi RSVP WhatsApp
+            </h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="inline-flex items-center gap-1 text-xs font-medium text-emerald-300 bg-emerald-950/70 px-2.5 py-1 rounded-full border border-emerald-800/40">
+              <i data-feather="check" class="w-3.5 h-3.5"></i> Siap Pakai
+            </span>
+          </div>
+        </div>
+
+        <!-- Problem & Solution Split in Dark Panels -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div class="p-4 rounded-2xl bg-amber-950/20 border border-amber-900/30">
+            <div class="flex items-center gap-2 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
+              <i data-feather="alert-circle" class="w-4 h-4 text-amber-400"></i>
+              Tantangan / Masalah
+            </div>
+            <p class="text-xs sm:text-sm text-textSecondary leading-relaxed">
+              Tamu sering bingung mencari rute lokasi dan malas mengisi formulir pendaftaran yang panjang dan lambat di layar ponsel.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-900/30">
+            <div class="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider mb-2">
+              <i data-feather="check-circle" class="w-4 h-4 text-emerald-400"></i>
+              Solusi & Dampak
+            </div>
+            <p class="text-xs sm:text-sm text-textSecondary leading-relaxed">
+              Navigasi Google Maps sekali ketuk dan konfirmasi kehadiran (RSVP) instan otomatis terhubung ke chat WhatsApp pengantin.
+            </p>
+          </div>
+        </div>
+
+        <!-- Screenshots Grid with Click to Enlarge -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-xs font-semibold uppercase tracking-wider text-textSecondary flex items-center gap-1.5">
+              <i data-feather="smartphone" class="w-3.5 h-3.5 text-emerald-400"></i>
+              Tangkapan Layar Antarmuka Mobile (Klik untuk memperbesar)
+            </p>
+            <span class="text-[11px] text-textMuted font-mono">4 Gambar</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            
+            <!-- Shot 1 -->
+            <div class="group relative rounded-xl overflow-hidden aspect-[9/16] bg-panel border border-darkBorder hover:border-emerald-500/50 cursor-pointer shadow-lg transition duration-300" onclick="openLightbox('https://lh3.googleusercontent.com/d/1iCBzOPXjd9V0e6QUWIMMehuE6rLxZXqp=w1200', 'Tampilan Cover Undangan')">
+              <img 
+                src="https://lh3.googleusercontent.com/d/1iCBzOPXjd9V0e6QUWIMMehuE6rLxZXqp=w600" 
+                data-gdrive="1iCBzOPXjd9V0e6QUWIMMehuE6rLxZXqp"
+                alt="Tangkapan Layar Cover Undangan"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80';"
+              >
+              <div class="absolute inset-0 bg-canvasDark/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-emerald-300">
+                <i data-feather="zoom-in" class="w-5 h-5"></i>
+              </div>
+              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[10px] text-white backdrop-blur-xs font-mono border border-white/10">Cover</span>
+            </div>
+
+            <!-- Shot 2 -->
+            <div class="group relative rounded-xl overflow-hidden aspect-[9/16] bg-panel border border-darkBorder hover:border-emerald-500/50 cursor-pointer shadow-lg transition duration-300" onclick="openLightbox('https://lh3.googleusercontent.com/d/1QFmz6lIGMOUhuxpyER9n3__Cn4kaSpHD=w1200', 'Detail Mempelai & Acara')">
+              <img 
+                src="https://lh3.googleusercontent.com/d/1QFmz6lIGMOUhuxpyER9n3__Cn4kaSpHD=w600" 
+                data-gdrive="1QFmz6lIGMOUhuxpyER9n3__Cn4kaSpHD"
+                alt="Detail Acara Pernikahan"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=500&q=80';"
+              >
+              <div class="absolute inset-0 bg-canvasDark/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-emerald-300">
+                <i data-feather="zoom-in" class="w-5 h-5"></i>
+              </div>
+              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[10px] text-white backdrop-blur-xs font-mono border border-white/10">Acara</span>
+            </div>
+
+            <!-- Shot 3 -->
+            <div class="group relative rounded-xl overflow-hidden aspect-[9/16] bg-panel border border-darkBorder hover:border-emerald-500/50 cursor-pointer shadow-lg transition duration-300" onclick="openLightbox('https://lh3.googleusercontent.com/d/19XcPrSYxtEFSooigHntSuUr0QCMOEf1H=w1200', 'Navigasi Peta Google Maps')">
+              <img 
+                src="https://lh3.googleusercontent.com/d/19XcPrSYxtEFSooigHntSuUr0QCMOEf1H=w600" 
+                data-gdrive="19XcPrSYxtEFSooigHntSuUr0QCMOEf1H"
+                alt="Navigasi Peta & Rute Google Maps"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80';"
+              >
+              <div class="absolute inset-0 bg-canvasDark/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-emerald-300">
+                <i data-feather="zoom-in" class="w-5 h-5"></i>
+              </div>
+              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[10px] text-white backdrop-blur-xs font-mono border border-white/10">Rute Peta</span>
+            </div>
+
+            <!-- Shot 4 -->
+            <div class="group relative rounded-xl overflow-hidden aspect-[9/16] bg-panel border border-darkBorder hover:border-emerald-500/50 cursor-pointer shadow-lg transition duration-300" onclick="openLightbox('https://lh3.googleusercontent.com/d/17_JqZOxfiiGf85T03m1C1LejNRq1qcZB=w1200', 'Konfirmasi RSVP WhatsApp')">
+              <img 
+                src="https://lh3.googleusercontent.com/d/17_JqZOxfiiGf85T03m1C1LejNRq1qcZB=w600" 
+                data-gdrive="17_JqZOxfiiGf85T03m1C1LejNRq1qcZB"
+                alt="Integrasi RSVP WhatsApp Otomatis"
+                class="w-full h-full object-cover transition duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80';"
+              >
+              <div class="absolute inset-0 bg-canvasDark/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-emerald-300">
+                <i data-feather="zoom-in" class="w-5 h-5"></i>
+              </div>
+              <span class="absolute bottom-2 left-2 px-1.5 py-0.5 rounded bg-black/70 text-[10px] text-white backdrop-blur-xs font-mono border border-white/10">RSVP WA</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kontak" class="mb-14 scroll-mt-24">
+      <div class="mb-5">
+        <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold">Get in Touch</span>
+        <h2 class="text-2xl font-serif font-medium text-textPrimary">Hubungkan Kolaborasi</h2>
+      </div>
+
+      <div class="glass-dark rounded-3xl p-6 sm:p-8 border border-darkBorder shadow-2xl">
+        <p class="text-sm text-textSecondary mb-6">
+          Tertarik mendiskusikan peluang kerja penuh waktu, proyek lepas, atau sekadar bertukar wawasan seputar antarmuka web? Silakan terhubung melalui platform di bawah:
+        </p>
+
+        <!-- Social & Contact Grid Buttons in Dark Minimalist Style -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
+          
+          <a href="mailto:myjobaslam@gmail.com" class="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-panel border border-darkBorder hover:border-emerald-500/50 hover:bg-panelHover transition duration-200 group text-center col-span-2 sm:col-span-1">
+            <i data-feather="mail" class="w-5 h-5 text-emerald-400 mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-bold text-textPrimary">Gmail</span>
+            <span class="text-[10px] text-textMuted font-mono truncate max-w-full">myjobaslam@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/6285792523068" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-panel border border-darkBorder hover:border-emerald-500/50 hover:bg-panelHover transition duration-200 group text-center">
+            <i data-feather="message-circle" class="w-5 h-5 text-emerald-400 mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-bold text-textPrimary">WhatsApp</span>
+            <span class="text-[10px] text-textMuted font-mono">+62 857-9252-3068</span>
+          </a>
+
+          <a href="https://www.linkedin.com/in/job-aslam-00b695438/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-panel border border-darkBorder hover:border-emerald-500/50 hover:bg-panelHover transition duration-200 group text-center">
+            <i data-feather="linkedin" class="w-5 h-5 text-[#38BDF8] mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-bold text-textPrimary">LinkedIn</span>
+            <span class="text-[10px] text-textMuted font-mono">in/job-aslam</span>
+          </a>
+
+          <a href="https://github.com/myjobaslam-beep" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-panel border border-darkBorder hover:border-emerald-500/50 hover:bg-panelHover transition duration-200 group text-center">
+            <i data-feather="github" class="w-5 h-5 text-textPrimary mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-bold text-textPrimary">GitHub</span>
+            <span class="text-[10px] text-textMuted font-mono">myjobaslam-beep</span>
+          </a>
+
+          <a href="https://www.instagram.com/ataam.id/" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center justify-center p-3.5 rounded-2xl bg-panel border border-darkBorder hover:border-emerald-500/50 hover:bg-panelHover transition duration-200 group text-center">
+            <i data-feather="instagram" class="w-5 h-5 text-[#FB7185] mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-bold text-textPrimary">Instagram</span>
+            <span class="text-[10px] text-textMuted font-mono">@ataam.id</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="text-center text-xs text-textMuted py-6 border-t border-darkBorder">
+      <p class="font-serif italic text-sm text-emerald-400/90 mb-1">“Tenang, Fungsional, dan Bernilai Guna.”</p>
+      <p>© 2026 Aslam Zuhdi. Dirancang dengan presisi editorial & keheningan visual.</p>
+    </footer>
+
+  </div>
+
+  <!-- Lightbox Modal for Image Preview -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+    <div class="relative max-w-sm sm:max-w-md w-full bg-panel rounded-3xl p-2.5 border border-white/10 shadow-2xl" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-12 right-0 p-2 text-white/80 hover:text-white bg-white/10 rounded-full transition">
+        <i data-feather="x" class="w-5 h-5"></i>
+      </button>
+      <div class="aspect-[9/16] rounded-2xl overflow-hidden bg-black flex items-center justify-center">
+        <img id="lightboxImg" src="" alt="Pratinjau Layar" class="w-full h-full object-contain">
+      </div>
+      <p id="lightboxCaption" class="text-center text-xs text-emerald-300 py-2.5 font-mono"></p>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-panel text-emerald-300 text-xs px-4 py-2.5 rounded-full shadow-2xl border border-emerald-500/40 flex items-center gap-2 transition transform translate-y-4 opacity-0">
+    <i data-feather="check" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toastMsg">Tersalin ke papan klip!</span>
+  </div>
+
+  <script>
+    // 1. Inisialisasi Ikon Feather
+    feather.replace();
+
+    // 2. Jam Real-Time Malang (Asia/Jakarta / WIB)
+    function updateMalangClock() {
+      try {
+        const options = {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+        const formatter = new Intl.DateTimeFormat('id-ID', options);
+        const timeString = formatter.format(new Date());
+        const clockEl = document.getElementById('malang-clock');
+        if (clockEl) {
+          clockEl.textContent = `Malang, ${timeString} WIB`;
+        }
+      } catch (err) {
+        console.error("Gagal sinkronisasi waktu:", err);
+      }
+    }
+    updateMalangClock();
+    setInterval(updateMalangClock, 1000);
+
+    // 3. Slider Foto Pengalaman Interaktif
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const track = document.getElementById('slideTrack');
+    const counter = document.getElementById('slideCounter');
+    const dotsContainer = document.getElementById('slideDots');
+
+    function setSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentSlide = index;
+
+      if (track) {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      if (counter) {
+        counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+      }
+
+      // Update Tab Pill Styles in Dark Mode
+      if (dotsContainer) {
+        const buttons = dotsContainer.querySelectorAll('button');
+        buttons.forEach((btn, idx) => {
+          if (idx === currentSlide) {
+            btn.className = "px-3 py-1 rounded-full font-medium transition text-emerald-300 bg-emerald-950/80 border border-emerald-700/50";
+          } else {
+            btn.className = "px-3 py-1 rounded-full font-medium transition text-textSecondary hover:text-textPrimary hover:bg-panelHover";
+          }
+        });
+      }
+    }
+
+    const btnNext = document.getElementById('sliderNext');
+    const btnPrev = document.getElementById('sliderPrev');
+
+    if (btnNext) btnNext.addEventListener('click', () => setSlide(currentSlide + 1));
+    if (btnPrev) btnPrev.addEventListener('click', () => setSlide(currentSlide - 1));
+
+    // Touch Swipe Support for Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (track) {
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) setSlide(currentSlide + 1);
+        if (touchEndX - touchStartX > 50) setSlide(currentSlide - 1);
+      }, { passive: true });
+    }
+
+    // 4. Salin Nomor dengan Fallback Aman (execCommand)
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      if (toast && toastMsg) {
+        toastMsg.textContent = message;
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.remove('translate-y-4', 'opacity-0');
+        }, 10);
+
+        setTimeout(() => {
+          toast.classList.add('translate-y-4', 'opacity-0');
+          setTimeout(() => toast.classList.add('hidden'), 300);
+        }, 3000);
+      }
+    }
+
+    function copyContactNumber() {
+      const textToCopy = "+6285792523068";
+      const dummyInput = document.createElement("input");
+      document.body.appendChild(dummyInput);
+      dummyInput.value = textToCopy;
+      dummyInput.select();
+      try {
+        document.execCommand("copy");
+        showToast("Nomor WhatsApp berhasil disalin!");
+      } catch (err) {
+        console.error("Gagal menyalin:", err);
+      }
+      document.body.removeChild(dummyInput);
+    }
+
+    // 6. Lightbox Interaktif untuk Tangkapan Layar HP
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImg');
+    const modalCaption = document.getElementById('lightboxCaption');
+
+    function openLightbox(src, caption) {
+      if (modal && modalImg) {
+        modalImg.src = src;
+        if (modalCaption) modalCaption.textContent = caption || '';
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          modal.classList.remove('opacity-0');
+        }, 10);
+        feather.replace();
+      }
+    }
+
+    function closeLightbox() {
+      if (modal) {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+      }
+    }
+  </script>
+</body>
+</html>
